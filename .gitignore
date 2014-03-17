@@ -11,6 +11,7 @@
 /bin/
 /composer.phar
 /composer.lock
+/nbproject/
 
 #dossiers IDE
 /.idea/
@@ -18,3 +19,4 @@
 
 #fichiers cachés MAC
 .DS_Store
+/nbproject/private/

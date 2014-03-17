@@ -1,4 +1,4 @@
 trouve_blog:
     resource: "@TrouveBlogBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /Blog
 
