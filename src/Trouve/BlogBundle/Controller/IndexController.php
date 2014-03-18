@@ -4,6 +4,7 @@ namespace Trouve\BlogBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Trouve\BlogBundle\Entity\Category;
 
 
 class IndexController extends Controller
@@ -14,6 +15,14 @@ class IndexController extends Controller
     
     public function indexAction()
     {
+        //creation d'une categorie
+        $category=new Category();
+        $category->setName('categorie1');
+        $em=$this->getDoctrine()->getManager();
+        $em->persist($category);
+        $em->flush();
+        
+        
         $tabPosts = array(
             array('title'=>"post1",'isPublish'=>false)
             ,

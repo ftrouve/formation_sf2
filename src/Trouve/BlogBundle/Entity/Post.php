@@ -4,6 +4,7 @@ namespace Trouve\BlogBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Trouve\BlogBundle\Entity\AbstractEntity;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Post
@@ -42,4 +43,22 @@ class Post extends AbstractEntity
      * @ORM\Column(name="isPublish", type="boolean")
      */
     protected $isPublish;
+    
+
+    /**
+     * @ORM\OneToMany(targetEntity="Comment", mappedBy="post")
+     */
+   
+    protected $comments;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="Category", mappedBy="posts")
+     */
+    
+    protected $category;
+    
+    public function __construct($data = array()) {
+        $this->comments = new ArrayCollection();
+        $this->categories = new ArrayCollection();
+    }
 }
