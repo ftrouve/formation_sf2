@@ -1,0 +1,6 @@
+<h1>Liste des posts</h1>
+<ul>
+    {% for post in tabPosts %}
+    <li class="{{ (loop.index is odd) ? 'odd' : 'even'}}"style="{{post.isPublish ? true : 'color:red;'}}">{{post.title}}</li>
+    {% endfor %}
+</ul>
