@@ -20,6 +20,21 @@ class PostController extends Controller
         $post=new Post();
         $form = $this->createForm(new PostType(),$post);
         
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $em=$this->getDoctrine()->getManager();
+            $em->persist($post);
+            $em->flush();
+            
+            //controller
+            $this->get('session')->getFlashBag()->add('success','Le post a été enregistré');
+            
+            
+            return $this->redirect($this->generateUrl('trouve_blog_newPost'));
+        }
+
+        
         return array('form'=>$form->createView());
     }
     

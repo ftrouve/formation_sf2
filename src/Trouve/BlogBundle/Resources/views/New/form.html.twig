@@ -1,1 +1,12 @@
-{{form(form)}}
+{% extends '::base.html.twig' %}
+{% block body %}
+
+    {% for key, flashArray in app.session.flashBag.all() %}
+        {% for flash in flashArray %}
+            <div class=""alert alert-{{ key }}">{{ flash }}</div>
+        {% endfor %}
+    {% endfor %}
+
+    {{form(form)}}
+        
+{%endblock%}
