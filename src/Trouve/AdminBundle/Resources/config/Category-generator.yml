@@ -1,0 +1,57 @@
+generator: admingenerator.generator.doctrine
+params:
+    model: Trouve\BlogBundle\Entity\Category
+    namespace_prefix: Trouve
+    concurrency_lock: ~
+    bundle_name: AdminBundle
+    pk_requirement: ~
+    fields: ~
+    object_actions:
+        delete: ~
+    batch_actions:
+        delete: ~
+    i18n_catalog: category
+builders:
+    list:
+        params:
+            title: List categories
+            display: [name]
+            actions:
+                new: ~
+            object_actions:
+                edit: ~
+                delete: ~
+    excel:
+        params: ~
+        filename: ~
+        filetype: ~
+    filters:
+        params:
+            display: ~
+    new:
+        params:
+            title: New category
+            display: [name]
+            actions:
+                save: ~
+                list: ~
+    edit:
+        params:
+            title: "Edition category \"%object%\"|{ %object%: Category.name }|"
+            display: [name]
+            actions:
+                save: ~
+                list: ~
+    show:
+        params:
+            title: "You're viewing the object \"%object%\"|{ %object%: Category.name }|"
+            display: ~
+            actions:
+                list: ~
+                new: ~
+    actions:
+        params:
+            object_actions:
+                delete: ~
+            batch_actions:
+                delete: ~

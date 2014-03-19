@@ -1,0 +1,22 @@
+Trouve_Admin_comments:
+    resource: "@TrouveAdminBundle/Controller/Comment/"
+    type:     admingenerator
+    prefix:   /comments
+
+Trouve_Admin_posts:
+    resource: "@TrouveAdminBundle/Controller/Post/"
+    type:     admingenerator
+    prefix:   /posts
+
+Trouve_Admin_categories:
+    resource: "@TrouveAdminBundle/Controller/Category/"
+    type:     admingenerator
+    prefix:   /categories
+    
+#redirect admin homepage to post list
+Trouve_Admin_home:
+    defaults:
+        _controller: FrameworkBundle:Redirect:redirect
+        route: Trouve_AdminBundle_Post_list
+        permanent: true
+    pattern: /

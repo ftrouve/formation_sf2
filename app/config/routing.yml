@@ -1,3 +1,6 @@
+trouve_blog_admin:
+    resource: "@TrouveAdminBundle/Resources/config/routing.yml"
+    prefix:   /admin
 trouve_blog:
     resource: "@TrouveBlogBundle/Resources/config/routing.yml"
     prefix:   /

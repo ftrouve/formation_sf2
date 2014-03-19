@@ -17,6 +17,7 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new Trouve\BlogBundle\TrouveBlogBundle(),
+            new Trouve\AdminBundle\TrouveAdminBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new Admingenerator\GeneratorBundle\AdmingeneratorGeneratorBundle(),
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),

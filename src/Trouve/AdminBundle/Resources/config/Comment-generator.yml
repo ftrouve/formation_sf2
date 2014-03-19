@@ -1,0 +1,57 @@
+generator: admingenerator.generator.doctrine
+params:
+    model: Trouve\BlogBundle\Entity\Comment
+    namespace_prefix: Trouve
+    concurrency_lock: ~
+    bundle_name: AdminBundle
+    pk_requirement: ~
+    fields: ~
+    object_actions:
+        delete: ~
+    batch_actions:
+        delete: ~
+    i18n_catalog: comment
+builders:
+    list:
+        params:
+            title: List comments
+            display: [body,created,updated]
+            actions:
+                new: ~
+            object_actions:
+                edit: ~
+                delete: ~
+    excel:
+        params: ~
+        filename: ~
+        filetype: ~
+    filters:
+        params:
+            display: ~
+    new:
+        params:
+            title: New comment
+            display: [body]
+            actions:
+                save: ~
+                list: ~
+    edit:
+        params:
+            title: "Edition comment \"%object%\"|{ %object%: Comment.title }|"
+            display: ~
+            actions:
+                save: ~
+                list: ~
+    show:
+        params:
+            title: "You're viewing the object \"%object%\"|{ %object%: Comment.title }|"
+            display: ~
+            actions:
+                list: ~
+                new: ~
+    actions:
+        params:
+            object_actions:
+                delete: ~
+            batch_actions:
+                delete: ~

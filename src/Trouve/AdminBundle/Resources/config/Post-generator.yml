@@ -1,0 +1,59 @@
+generator: admingenerator.generator.doctrine
+params:
+    model: Trouve\BlogBundle\Entity\Post
+    namespace_prefix: Trouve
+    concurrency_lock: ~
+    bundle_name: AdminBundle
+    pk_requirement: ~
+    fields: 
+        is_publish:
+           getter: is_publish
+    object_actions:
+        delete: ~
+    batch_actions:
+        delete: ~
+    i18n_catalog: post
+builders:
+    list:
+        params:
+            title: List Post
+            display: [title,body,is_publish,created,updated]
+            actions:
+                new: ~
+            object_actions:
+                edit: ~
+                delete: ~
+    excel:
+        params: ~
+        filename: ~
+        filetype: ~
+    filters:
+        params:
+            display: ~
+    new:
+        params:
+            title: New post
+            display: [title,is_publish,body]
+            actions:
+                save: ~
+                list: ~
+    edit:
+        params:
+            title: "Edition post \"%object%\"|{ %object%: Post.title }|"
+            display: [title,is_publish,body]
+            actions:
+                save: ~
+                list: ~
+    show:
+        params:
+            title: "You're viewing the object \"%object%\"|{ %object%: Post.title }|"
+            display: ~
+            actions:
+                list: ~
+                new: ~
+    actions:
+        params:
+            object_actions:
+                delete: ~
+            batch_actions:
+                delete: ~
