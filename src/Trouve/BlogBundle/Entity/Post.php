@@ -11,6 +11,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  *
  * @ORM\Table(name="post")
  * @ORM\Entity(repositoryClass="Trouve\BlogBundle\Entity\PostRepository")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Post extends AbstractEntity
 {
@@ -40,11 +41,23 @@ class Post extends AbstractEntity
     /**
      * @var boolean
      *
-     * @ORM\Column(name="isPublish", type="boolean")
+     * @ORM\Column(name="is_publish", type="boolean")
      */
-    protected $isPublish;
+    protected $is_publish;
     
-
+    
+    /**
+     *
+     * @ORM\Column(type="datetime")
+     */
+    protected $created;
+    
+    /**
+     *
+     * @ORM\Column(type="datetime")
+     */
+    protected $updated;
+    
     /**
      * @ORM\OneToMany(targetEntity="Comment", mappedBy="post")
      */
@@ -57,8 +70,26 @@ class Post extends AbstractEntity
     
     protected $category;
     
+    
+    
     public function __construct($data = array()) {
         $this->comments = new ArrayCollection();
         $this->categories = new ArrayCollection();
+         parent::__construct(array());
     }
+    
+    /**
+     * @ORM\PrePersist
+     */
+    public function setCreatedValue(){
+        $this->created=new \DateTime();
+        $this->updated=new \DateTime();
+    }
+     /**
+     * @ORM\PreUpdate
+     */
+    public function setUpdatedValue(){
+        $this->updated=new \DateTime();
+    }
+   
 }

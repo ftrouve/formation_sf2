@@ -12,4 +12,7 @@ use Doctrine\ORM\EntityRepository;
  */
 class PostRepository extends EntityRepository
 {
+    public function getPublishedPosts(){
+        return $this->findBy(array('is_publish'=>true),array('created'=>'DESC'));
+    }
 }
