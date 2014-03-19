@@ -80,4 +80,4 @@ admingenerator_generator:
     dashboard_welcome_path: fos_user_security_login
     
 admingenerator_user:
-    login_template: AdmingeneratorGeneratorBundle::base_admin_assetic_less.html.twig
+    login_template: TrouveAdminBundle::base_admin_assetic_less.html.twig

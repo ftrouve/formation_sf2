@@ -34,7 +34,7 @@ class Category extends AbstractEntity
     protected $name;
   
      /**
-     * @ORM\ManyToMany(targetEntity="Post", inversedBy="categories")
+     * @ORM\ManyToMany(targetEntity="Post", mappedBy="categories")
      */
     protected $posts;
     

@@ -6,6 +6,6 @@ return array(
     'Created' => 'Créé le',
     'Updated' => 'Modifié le',
     'Body' => 'Message', 	  	
-    'Edition comment "%object%"' => 'Edition d\'un commentaire "%object%"'
+    'Edition comment' => 'Edition d\'un commentaire'
 )
 ;

@@ -15,7 +15,7 @@ builders:
     list:
         params:
             title: List comments
-            display: [body,created,updated]
+            display: [body,post,created,updated]
             actions:
                 new: ~
             object_actions:
@@ -31,20 +31,20 @@ builders:
     new:
         params:
             title: New comment
-            display: [body]
+            display: [post, body]
             actions:
                 save: ~
                 list: ~
     edit:
         params:
-            title: "Edition comment \"%object%\"|{ %object%: Comment.title }|"
-            display: ~
+            title: "Edition comment "
+            display: [post, body]
             actions:
                 save: ~
                 list: ~
     show:
         params:
-            title: "You're viewing the object \"%object%\"|{ %object%: Comment.title }|"
+            title: "You're viewing the object "
             display: ~
             actions:
                 list: ~

@@ -17,7 +17,7 @@ builders:
     list:
         params:
             title: List Post
-            display: [title,body,is_publish,created,updated]
+            display: [title,body,is_publish,categories]
             actions:
                 new: ~
             object_actions:
@@ -33,17 +33,32 @@ builders:
     new:
         params:
             title: New post
-            display: [title,is_publish,body]
+            display: [title,is_publish,body,categories]
             actions:
-                save: ~
                 list: ~
+                save-and-list: ~
+            fields:
+                categories:
+                    formType: entity
+                    addFormOptions:
+                        class: TrouveBlogBundle:Category
+                        property: name
+                        multiple: true
     edit:
         params:
             title: "Edition post \"%object%\"|{ %object%: Post.title }|"
-            display: [title,is_publish,body]
+            display: [title,is_publish,body,categories]
             actions:
-                save: ~
                 list: ~
+                save-and-list: ~
+            fields:
+                categories:
+                    formType: entity
+                    addFormOptions:
+                        class: TrouveBlogBundle:Category
+                        property: name
+                        multiple: true
+                        
     show:
         params:
             title: "You're viewing the object \"%object%\"|{ %object%: Post.title }|"
