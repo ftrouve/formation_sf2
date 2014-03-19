@@ -1,6 +1,6 @@
 trouve_blog:
     resource: "@TrouveBlogBundle/Resources/config/routing.yml"
-    prefix:   /Blog
+    prefix:   /
 
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"
