@@ -6,4 +6,5 @@
     <li class="{{ (loop.index is odd) ? 'odd' : 'even'}}"style="{{post.is_publish ? true : 'color:red;'}}">{{post.title}}</li>
     {% endfor %}
 </ul>
+<a href="{{ path('trouve_blog_newPost') }}">lien new post</a>
 {%endblock%}

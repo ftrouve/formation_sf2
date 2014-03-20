@@ -33,7 +33,15 @@ class PostController extends Controller
             
             return $this->redirect($this->generateUrl('trouve_blog_newPost'));
         }
-
+        
+        /*$message = \Swift_Message::newInstance()
+                ->setSubject('Hello Email')
+                ->setFrom('toto@toto.fr')
+                ->setTo('frantz.trouve@free.fr')
+                ->setBody('bonjour');
+        $this->get('mailer')->send($message);
+         */
+         
         
         return array('form'=>$form->createView());
     }
