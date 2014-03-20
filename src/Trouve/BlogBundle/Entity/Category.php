@@ -5,6 +5,7 @@ namespace Trouve\BlogBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Trouve\BlogBundle\Entity\AbstractEntity;
 use Doctrine\Common\Collections\ArrayCollection;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Category
@@ -24,7 +25,11 @@ class Category extends AbstractEntity
     protected $id;
     
    
-   
+    /**
+     * @Gedmo\Slug(fields={"name"})
+     * @ORM\Column(length=50, unique=true)
+     */
+    protected $slug;
     
      /**
      * @var string

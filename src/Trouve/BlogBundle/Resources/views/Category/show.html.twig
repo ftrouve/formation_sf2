@@ -1,0 +1,10 @@
+{% extends 'TrouveBlogBundle::layout.html.twig' %}
+
+{% block body %}
+<h2>{{ category.name }}</h2>
+     <div class="blog-category">
+        {% for post in category.posts %}
+            {% include 'TrouveBlogBundle:Post:inline.html.twig' %}
+        {% endfor %}
+     </div>
+{%endblock%}

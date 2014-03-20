@@ -4,6 +4,7 @@ return array(
     'Posts' => 'Billets',
     'Categories' => 'Catégories',
     'Comments' => 'Commentaires',
-    'Logout' => 'Déconnexion'
+    'Logout' => 'Déconnexion',
+    'Home' => 'Accueil'
 )
 ;

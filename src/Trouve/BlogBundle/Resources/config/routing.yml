@@ -7,3 +7,6 @@ trouve_blog_newPost:
 trouve_blog_postShow:
     path:   /{slug}
     defaults:  { _controller: TrouveBlogBundle:Post:show }
+trouve_blog_categoryShow:
+    path:   /category/{slug}
+    defaults:  { _controller: TrouveBlogBundle:Category:show }

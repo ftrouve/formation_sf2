@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% stylesheets '@TrouveBlogBundle/Resources/public/css/*' %}
+        {% stylesheets '@TrouveBlogBundle/Resources/public/css/bootstrap.css'
+                        '@TrouveBlogBundle/Resources/public/css/blog.css' %}
          <link href={{ asset_url}} rel="stylesheet">
         {% endstylesheets %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
@@ -14,15 +15,8 @@
     <body> 
          <div class="blog-masthead">
             <div class="container">
-               
-                {% block navbar %}
-                <nav class="blog-nav">
-                          <a class="blog-nav-item active" href="#">Home</a>
-                          <a class="blog-nav-item" href="{{ path('trouve_blog_homepage') }}">Blog</a>
-                          <a class="blog-nav-item" href="{{ path('trouve_blog_newPost') }}">New Post</a>
-                          <a class="blog-nav-item" href="#">About</a>
-                        </nav>
-                {% endblock %}
+                {{ knp_menu_render('TrouveBlogBundle:Builder:mainMenu',{'template': 'TrouveBlogBundle:Menu:knp_menu.html.twig'}) }}
+                
             </div>
         </div>
         <div class="container">
