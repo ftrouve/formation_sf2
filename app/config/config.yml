@@ -28,12 +28,16 @@ framework:
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
-
+services:
+    twig.extension.text:
+       class: Twig_Extensions_Extension_Text
+       tags:
+           - { name: twig.extension }
 # Assetic Configuration
 assetic:
     debug:          "%kernel.debug%"
     use_controller: false
-    bundles:        [ ]
+    bundles:        [ TrouveBlogBundle ]
     #java: /usr/bin/java
     filters:
         cssrewrite: ~
@@ -59,6 +63,8 @@ doctrine:
     orm:
         auto_generate_proxy_classes: "%kernel.debug%"
         auto_mapping: true
+        mappings:
+            StofDoctrineExtensionsBundle: ~
 
 # Swiftmailer Configuration
 swiftmailer:
@@ -81,3 +87,11 @@ admingenerator_generator:
     
 admingenerator_user:
     login_template: TrouveAdminBundle::base_admin_assetic_less.html.twig
+
+stof_doctrine_extensions:
+    default_locale: %locale%
+    translation_fallback: true
+    orm:
+        default:
+            timestampable: true
+            sluggable: true

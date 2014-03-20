@@ -45,5 +45,20 @@ class PostController extends Controller
         
         return array('form'=>$form->createView());
     }
-    
+    /**
+     * @Template("TrouveBlogBundle:Post:show.html.twig")
+     */
+    public function showAction($slug)
+    {
+         $repository= $this->getDoctrine()
+                ->getRepository('TrouveBlogBundle:Post');
+         $post=$repository->findOneBySlug($slug);
+         
+         if(!$post){
+             throw $this->createNotFoundException($this->get('translator')->trans('This post does not exist'));
+         }
+        
+
+        return array('post'=> $post);
+    }
 }

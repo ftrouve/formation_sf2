@@ -1,10 +1,31 @@
-{% extends '::base.html.twig' %}
+{% extends 'TrouveBlogBundle::layout.html.twig' %}
+
+
 {% block body %}
-<h1>Liste des posts</h1>
-<ul>
+
+<div class="blog-post">
+
     {% for post in posts %}
-    <li class="{{ (loop.index is odd) ? 'odd' : 'even'}}"style="{{post.is_publish ? true : 'color:red;'}}">{{post.title}}</li>
-    {% endfor %}
-</ul>
-<a href="{{ path('trouve_blog_newPost') }}">lien new post</a>
+        {% if post.is_publish %}
+    <h2 class="blog-post-title"><a href="{{ path('trouve_blog_postShow', {'slug': post.slug }) }}">{{post.title}}</a></h2>
+    <p class="blog-post-meta">{{post.created|date('j/m/Y')}} by <a href="#">admin</a></p>
+            <p>{{ post.body | truncate(150, true, '... ') }}<a href="#">Lire la suite</a></p>
+       {% endif %}
+ {% endfor %}
+</div>
+{%endblock%}
+
+{% block sidebar %}
+
+<div class="sidebar-module sidebar-module-inset">
+   <h4>Categories</h4>
+
+   <div class="sidebar-module">
+     <ol class="list-unstyled">
+        {% for category in categories %}
+             <li><a href="?category.id={{category.id}}">{{category.name}}</a></li>
+        {% endfor %}
+      </ol>
+   </div>
+</div></div>
 {%endblock%}

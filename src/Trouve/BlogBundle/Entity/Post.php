@@ -1,10 +1,10 @@
 <?php
-
 namespace Trouve\BlogBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Trouve\BlogBundle\Entity\AbstractEntity;
 use Doctrine\Common\Collections\ArrayCollection;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Post
@@ -30,6 +30,13 @@ class Post extends AbstractEntity
      * @ORM\Column(name="title", type="string", length=255)
      */
     protected $title;
+    
+    /**
+     * @Gedmo\Slug(fields={"title"})
+     * @ORM\Column(length=128, unique=true)
+     */
+    protected $slug;
+
 
     /**
      * @var string

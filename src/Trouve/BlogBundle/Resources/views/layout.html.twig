@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% stylesheets '@TrouveBlogBundle/Resources/public/css/*' %}
+         <link href={{ asset_url}} rel="stylesheet">
+        {% endstylesheets %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        
+    </head>
+    <body> 
+         <div class="blog-masthead">
+            <div class="container">
+               
+                {% block navbar %}
+                <nav class="blog-nav">
+                          <a class="blog-nav-item active" href="#">Home</a>
+                          <a class="blog-nav-item" href="{{ path('trouve_blog_homepage') }}">Blog</a>
+                          <a class="blog-nav-item" href="{{ path('trouve_blog_newPost') }}">New Post</a>
+                          <a class="blog-nav-item" href="#">About</a>
+                        </nav>
+                {% endblock %}
+            </div>
+        </div>
+        <div class="container">
+            <div class="blog-header">
+                <h1 class="blog-title">{% trans %}The Trouve Blog{% endtrans %}</h1>
+                <p class="lead blog-description">{% trans %}The official template with Bootstrap.{% endtrans %}</p>
+            </div>
+            <div class="row">
+                <div class="col-sm-8 blog-main">
+                    {% block body %}{% endblock %} 
+                </div>
+                <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+                    {% block sidebar %}{% endblock %}
+                </div>
+            </div>
+        </div>
+        {% block javascripts %}{% endblock %}
+     
+     <div class="blog-footer">
+      <p>Blog template built for <a href="http://getbootstrap.com">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+      <p>
+        <a href="#">Back to top</a>
+      </p>
+    </div>
+    </body>
+</html>

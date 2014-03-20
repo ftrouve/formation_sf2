@@ -44,8 +44,11 @@ class IndexController extends Controller
                 ->getRepository('TrouveBlogBundle:Post')
                 ->getPublishedPosts();
 
-  
-        return array('posts'=> $posts);
+        $categories= $this->getDoctrine()
+                ->getRepository('TrouveBlogBundle:Category')
+                ->getPublishedCategories();
+        
+        return array('posts'=> $posts, 'categories'=> $categories);
     }
     
    

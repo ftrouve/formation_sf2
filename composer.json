@@ -21,7 +21,8 @@
         "incenteev/composer-parameter-handler": "~2.0",
         "friendsofsymfony/user-bundle": "~2.0@dev",
         "cedriclombardot/admingenerator-generator-bundle": "dev-master",
-        "cedriclombardot/admingenerator-user-bundle": "dev-master"
+        "cedriclombardot/admingenerator-user-bundle": "dev-master",
+        "stof/doctrine-extensions-bundle": "~1.1@dev"
     },
     "scripts": {
         "post-install-cmd": [

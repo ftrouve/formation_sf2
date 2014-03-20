@@ -12,4 +12,7 @@ use Doctrine\ORM\EntityRepository;
  */
 class CategoryRepository extends EntityRepository
 {
+    public function getPublishedCategories(){
+        return $this->findBy(array());
+    }
 }

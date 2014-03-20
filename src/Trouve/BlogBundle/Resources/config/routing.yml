@@ -4,3 +4,6 @@ trouve_blog_homepage:
 trouve_blog_newPost:
     pattern:  /post/new
     defaults: { _controller: TrouveBlogBundle:Post:new }
+trouve_blog_postShow:
+    path:   /{slug}
+    defaults:  { _controller: TrouveBlogBundle:Post:show }
